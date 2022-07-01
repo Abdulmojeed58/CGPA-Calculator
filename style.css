@@ -24,9 +24,13 @@ body {
     align-items: center;
     padding: 10px 30px;
     margin-inline: auto;
-    height: 100vh;
+    min-height: 100vh;
     padding-top: 0;
-    /* overflow: hidden; */
+    /* display: none; */
+}
+
+.active {
+    display: none !important;
 }
 
 .image {
@@ -43,7 +47,8 @@ img {
     /* background-color: blue; */
 }
 
-.title h2 {
+.title h2,
+.form-title h2 {
     font-weight: 600;
     color: #412F9C;
     font-size: 1.8rem;
@@ -62,22 +67,25 @@ img {
 .a, .c {
     width: 20%;
     height: 5px;
-    background-color: blue;
+    background-color: #CBC1F8;
     border: none;
 }
 
 .b {
     width: 10%;
     height: 5px;
-    background-color: blue;
     border: none;
+    background-color: #CBC1F8;
 }
 
-.b, .c {
-    background-color: grey;
+.mark {
+    background-color: #7C65ED;
 }
 
 button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     border: none;
     outline: none;
@@ -85,17 +93,123 @@ button {
     background-color: #BE4949;
     border-radius: 14.58px;
     margin-top: 10px;
+    color: #f6f6fb;
+    font-weight: 600;
+    gap: 10px;
+    cursor: pointer;
+}
+
+button:hover,
+button:focus {
+    background-color: rgba(190, 73, 73, .8);
+}
+
+.arrow {
+    height: auto;
+    width: 20px;
 }
 
 
-@media (min-width: 700px) {
+
+
+.form {
+    display: block;
+    padding: 20px;
+}
+
+.form-title {
+    /* background-color: green; */
+
+}
+
+.back-btn {
+    background-color: #9684F1;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    float: left;
+    cursor: pointer;
+}
+
+.back {
+    width: 15px;
+    height: 50px;
+    float: left;
+    
+}
+
+.form-title p {
+    font-size: 1rem;
+    margin-top: 10px;
+    letter-spacing: 1px;
+    font-weight: 600;
+    line-height: 1.7;
+    color: #8B8B9B;
+    width: 80%;
+    text-align: center;
+    margin-inline: auto;
+}
+
+form {
+    /* background-color: red; */
+
+}
+
+input {
+    display: block;
+    width: 90%;
+    border: none;
+    height: 100%;
+    outline: none;
+    font-family: inherit;
+    background-color: inherit;
+    padding-left: 10px;
+    color: rgba(0 0 0 / .6);
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+input::placeholder {
+    color: #8B8B9B;
+    font-weight: initial;
+    font-size: .8rem;
+}
+
+.input {
+    width: 100%;
+    /* background-color: yellow; */
+    border: 2px solid #9684F1;
+    border-radius: 8px;
+    height: 50px;
+
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    color: #6246EA;
+    font-weight: 600;
+}
+
+.progress-bar2 {
+    margin: 40px 0;
+}
+
+
+
+
+@media (min-width: 800px) {
     body {
         height: 100vh;
     }
 
     .image {
         height: 50vh;
-        width: 50vw;
+        width: 40vw;
+        min-width: 400px;
         /* background-color: green; */
     }
 
@@ -104,11 +218,13 @@ button {
         justify-content: space-between;
         padding: 100px 100px;
         gap: 20px;
+        height: 100vh;
         /* background-color: red; */
     }
 
     .title {
         width: 45vw;
+        min-width: 500px;
         /* min-width: 500px; */
         /* background-color: gainsboro; */
     }
@@ -126,6 +242,50 @@ button {
 
     button {
         margin: 25px 0;
+        max-width: 500px;
     }
+
+
+    .form {
+        display: flex;
+        justify-content: center;
+        /* justify-content: space-between; */
+        gap: 70px;
+        padding: 20px 0;
+        margin-inline: auto;
+        /* background-color: blue; */
+        width: max-content;
+    }
+
+    form {
+        width: 50vw;
+        max-width: 400px;
+    }
+
+    .form-title {
+        width: 40vw;
+        min-width: 400px;
+        max-width: 500px;
+        justify-self: flex-start;
+    }
+
+    .form-title h2 {
+        text-align: left;
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+    }
+
+    .form-title p {
+        font-size: 1.5rem;
+        width: auto;
+        text-align: left;
+    }
+
+    .back-btn {
+        position: absolute;
+        top: 30px;
+        left: 0;
+    }
+
 }
 

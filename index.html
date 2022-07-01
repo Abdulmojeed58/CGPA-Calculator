@@ -9,22 +9,82 @@
 </head>
 <body>
     <div class="container">
-        <div class="wrapper">
+        <div class="wrapper" id="start">
             <div class="image">
-                <img src="./Studying-rafiki 1.png" alt="">
+                <img src="./images/Studying-rafiki 1.png" alt="">
             </div>
-            <div class="title">`
+            <div class="title">
                 <h2>
                     Simple Approach To<br> Monitor & Enhance<br> Your Academic<br> Progress
                 </h2>
                 <div class="progress-bar">
-                    <div class="a"></div>
+                    <div class="a mark"></div>
                     <div class="b"></div>
                     <div class="c"></div>
                 </div>
-                <button>Get Started</button>
+                <button data-start>
+                    <div>
+                        Get Started
+                    </div> 
+                    <img src="./images/arrow-right-circle.svg" alt="" class="arrow">
+                </button>
             </div>
         </div>
+
+
+
+        <div class="wrapper form active" style="position: relative;" id="form">
+
+            <div class="back-btn">
+                <svg width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg" class="back">
+                    <path d="M5.5 10.5L1 6L5.5 1.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+
+                <!-- <img src="./images/Vector.svg" alt="" class="back"> -->
+            </div>
+            <div class="form-title">
+                <div>
+                    <h2>CGPA Calculator</h2>
+                </div>
+                <p>Calculate Your College's CGPA, SGPA, Verify Your Grades And Gain A Thorough Understanding of The GPA Scale.</p>
+            </div>
+
+            <form>
+                <label for="full-name">Full Name</label>
+                <div class="input">
+                    <input type="text" name="full-name" placeholder="Name Or Student ID">
+                </div>
+
+                <label for="faculty">Faculty</label>
+                <div class="input">
+                    <input type="text" name="faculty" placeholder="Select Your Faculty">
+                </div>
+
+                <label for="department">Department</label>
+                <div class="input">
+                    <input type="text" name="department" placeholder="Select Your Department">
+                </div>
+
+                <label for="level">Level</label>
+                <div class="input">
+                    <input type="text" name="level" placeholder="Years Of Program">
+                </div>
+
+                
+
+                <div class="progress-bar progress-bar2">
+                    <div class="a"></div>
+                    <div class="b mark"></div>
+                    <div class="c"></div>
+                </div>
+
+                <button>Submit</button>
+
+            </form>
+        </div>
     </div>
+
+
+    <script src="./script.js"></script>
 </body>
 </html>
