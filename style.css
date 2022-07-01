@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap');
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: poppins, sans-serif;
+    min-height: 100vh;
+    
+}
+
+.container {
+    height: 100%;
+}
+
+.wrapper {
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 30px;
+    margin-inline: auto;
+    height: 100vh;
+    padding-top: 0;
+    /* overflow: hidden; */
+}
+
+.image {
+    height: 50vh;
+    /* background-color: green; */
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
+.title {
+    /* background-color: blue; */
+}
+
+.title h2 {
+    font-weight: 600;
+    color: #412F9C;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.progress-bar {
+    display: flex;
+    gap: 5px;
+    margin-inline: auto;
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.a, .c {
+    width: 20%;
+    height: 5px;
+    background-color: blue;
+    border: none;
+}
+
+.b {
+    width: 10%;
+    height: 5px;
+    background-color: blue;
+    border: none;
+}
+
+.b, .c {
+    background-color: grey;
+}
+
+button {
+    width: 100%;
+    border: none;
+    outline: none;
+    height: 53px;
+    background-color: #BE4949;
+    border-radius: 14.58px;
+    margin-top: 10px;
+}
+
+
+@media (min-width: 700px) {
+    body {
+        height: 100vh;
+    }
+
+    .image {
+        height: 50vh;
+        width: 50vw;
+        /* background-color: green; */
+    }
+
+    .wrapper {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 100px 100px;
+        gap: 20px;
+        /* background-color: red; */
+    }
+
+    .title {
+        width: 45vw;
+        /* min-width: 500px; */
+        /* background-color: gainsboro; */
+    }
+
+    .title h2 {
+        /* background-color: green; */
+        max-width: 100%;
+        font-size: 3rem;
+        text-align: left;
+    }
+
+    .progress-bar {
+        margin-top: 25px;
+    }
+
+    button {
+        margin: 25px 0;
+    }
+}
+
