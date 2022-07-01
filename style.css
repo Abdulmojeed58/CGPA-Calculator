@@ -123,7 +123,8 @@ button:focus {
 }
 
 .back-btn {
-    background-color: #9684F1;
+    background-color: tr;
+    stroke: #8B8B9B;
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -285,6 +286,8 @@ label {
         position: absolute;
         top: 30px;
         left: 0;
+        background-color: #9684F1;
+        stroke: #fff;
     }
 
 }
