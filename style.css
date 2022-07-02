@@ -4,6 +4,12 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+    --text-color-light: #6246EA;
+    --text-color-dark: #412F9C;
 }
 
 body {
@@ -14,6 +20,40 @@ body {
 
 .container {
     height: 100%;
+}
+
+.modal {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0 0 0 /.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+.modal .spin {
+    width: 50px;
+    aspect-ratio: 1;
+    border: 10px solid wheat;
+    border-top-color: red;
+    border-radius: 50%;
+    animation: spin .5s linear .2s infinite;
+}
+
+@keyframes spin{
+    from{
+        transform: rotate(0turn);
+    }
+    to{
+        transform: rotate(1turn);
+    }
+}
+
+.error {
+    color: red;
+    display: block !important;
+    font-size: .8rem;
 }
 
 .wrapper {
@@ -38,7 +78,7 @@ body {
     /* background-color: green; */
 }
 
-img {
+img, img.image1 {
     width: 100%;
     height: 100%;
 }
@@ -128,9 +168,6 @@ button:focus {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     float: left;
     cursor: pointer;
 }
@@ -147,7 +184,7 @@ button:focus {
     margin-top: 10px;
     letter-spacing: 1px;
     font-weight: 600;
-    line-height: 1.7;
+    line-height: 1.4;
     color: #8B8B9B;
     width: 80%;
     text-align: center;
@@ -159,7 +196,7 @@ form {
 
 }
 
-input {
+form input {
     display: block;
     width: 90%;
     border: none;
@@ -185,7 +222,17 @@ input::placeholder {
     border: 2px solid #9684F1;
     border-radius: 8px;
     height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 10px;
 
+}
+
+.list {
+    width: 15px;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
 }
 
 label {
@@ -198,6 +245,252 @@ label {
 .progress-bar2 {
     margin: 40px 0;
 }
+
+img {
+    width: 10px;
+}
+
+
+
+
+.cgpa-field {
+    /* background-color: red; */
+}
+
+.cgpa-field {
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.cgpa-field .top {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+}
+
+.welcome {
+    text-transform: capitalize;
+}
+
+.cgpa-field .top img {
+    cursor: pointer;
+}
+
+.top h2, .details h2{
+    color: var(--text-color-dark);
+    font-size: 2rem;
+}
+
+.add-semester {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    /* float: right; */
+    margin-left: auto;
+    width: max-content;
+    color: var(--text-color-dark);
+    
+}
+
+.add-semester img {
+    cursor: pointer;
+}
+
+.add-semester h3 {
+    font-size: 1.2rem;
+}
+
+.semester .flex {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.semester > div > h3 {
+    color: var(--text-color-dark);
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+.add-semester img {
+    width: 20px;
+}
+
+.cgpa-field .title {
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    color: var(--text-color-light);
+    font-weight: 600;
+    /* background-color: red; */
+    width: 100%;
+    padding-inline: 30px;
+}
+
+.cgpa-field .title p {
+    width: calc(100% / 3);
+}
+
+.course-input {
+    background-color: #FAFAFA;
+    padding: 15px;
+}
+
+.course-input .input1 {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    gap: 10px;
+}
+
+.input1 > input,
+.input1 .grade-input {
+    height: 35px;
+    width: 30%;
+    background-color: inherit;
+    outline: none;
+    border: 1px solid var(--text-color-light);
+    padding-inline: 5px;
+    border-radius: 10px;
+}
+
+.input1 .grade-input {
+    display: flex;
+    align-items: center;
+}
+
+.input1 .del img {
+    /* background-color: green; */
+    width: 25px;
+    cursor: pointer;
+}
+
+.input1 .grade-input input {
+    width: 85%;
+    height: 100%;
+    outline: none;
+    border: none;
+}
+
+.grade-input img {
+    cursor: pointer;
+}
+
+.grade-input {
+    position: relative;
+}
+
+.grade-input ul {
+    position: absolute;
+    background-color: hsl(0, 0%, 90%);
+    bottom: -5px;
+    left: 0;
+    transform: translateY(100%);
+    z-index: 5;
+    width: 100%;
+    color: var(--text-color-dark);
+    border-radius: 10px;
+    overflow: hidden;
+    font-weight: 600;
+}
+
+li {
+    list-style-type: none;
+}
+
+.grade-input ul li {
+    padding: 3px 10px;
+    transition: all .2s linear;
+    cursor: pointer;
+}
+
+.grade-input ul li:hover{
+    background-color: white;
+    
+}
+
+.course-number {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+    gap: 10px;
+}
+
+.course-number > div {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.course-number input {
+    width: 35px;
+    height: 28px;
+    background-color: inherit;
+    outline: none;
+    border: 1px solid var(--text-color-light);
+    border-radius: 5px;
+    color: var(--text-color-dark);
+    font-weight: 600;
+}
+
+.course-number p {
+    color: var(--text-color-dark);
+    font-weight: 600;
+}
+
+.course-number img {
+    cursor: pointer;
+}
+
+.details {
+    margin-top: 20px;
+}
+
+.details > p {
+    color: var(--text-color-light);
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+.details .line {
+    width: 75%;
+    height: 2px;
+    background-color: var(--text-color-light);
+    margin: 20px 0;
+    margin-inline: auto;
+}
+
+.details .gpa, .details .cgpa {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--text-color-light);
+    font-weight: 600;
+}
+
+.details .gpa h1,
+.details .cgpa h1 {
+    color: var(--text-color-dark);
+}
+
+
+
+.details button {
+    border: 1px solid var(--text-color-dark);
+    background-color: transparent;
+    color: var(--text-color-dark);
+    transition: all .1s linear;
+}
+
+.details button:hover {
+    background-color: #CBC1F8;
+}
+
+
 
 
 
@@ -239,6 +532,7 @@ label {
 
     .progress-bar {
         margin-top: 25px;
+        justify-content: flex-start;
     }
 
     button {
@@ -280,6 +574,7 @@ label {
         font-size: 1.5rem;
         width: auto;
         text-align: left;
+        line-height: 1.7;
     }
 
     .back-btn {
@@ -288,7 +583,61 @@ label {
         left: 0;
         background-color: #9684F1;
         stroke: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
+
+
+
+
+    .cgpa-field {
+        padding: 50px;
+        height: 100vh;
+    }
+
+    .last-page {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        /* align-items: center; */
+        
+    }
+
+    .semester {
+        /* background-color: blue; */
+        width: 45%;
+    }
+
+    .details {
+        /* background-color: green; */
+        width: 45%;
+        margin-top: auto;
+    }
+
+    .add-semester h3, .semester>div>h3 {
+        font-size: 1.5rem;
+    }
+
+    .details>p {
+        margin-top: 10px;
+    }
+
+    .semester button {
+        width: 90%;
+        height: 70px;
+    }
+
+    .details button {
+        height: 70px;
+    }
+
+    .details .line {
+        margin: 30px;
+        margin-inline: initial;
+    }
+
+    
 
 }
 

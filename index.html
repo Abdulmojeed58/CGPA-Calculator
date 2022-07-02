@@ -9,9 +9,16 @@
 </head>
 <body>
     <div class="container">
+
+        <div class="modal active">
+            <div class="spin"></div>
+
+        </div>
+
+
         <div class="wrapper" id="start">
             <div class="image">
-                <img src="./images/Studying-rafiki 1.png" alt="">
+                <img src="./images/Studying-rafiki 1.png" alt="" class="image1">
             </div>
             <div class="title">
                 <h2>
@@ -52,22 +59,26 @@
             <form>
                 <label for="full-name">Full Name</label>
                 <div class="input">
-                    <input type="text" name="full-name" placeholder="Name Or Student ID">
+                    <input type="text" name="full-name" placeholder="Name Or Student ID" data-name>
+
+                   
                 </div>
 
                 <label for="faculty">Faculty</label>
                 <div class="input">
-                    <input type="text" name="faculty" placeholder="Select Your Faculty">
+                    <input type="text" name="faculty" placeholder="Enter Your Faculty">
                 </div>
 
                 <label for="department">Department</label>
                 <div class="input">
-                    <input type="text" name="department" placeholder="Select Your Department">
+                    <input type="text" name="department" placeholder="Enter Your Department">
                 </div>
 
                 <label for="level">Level</label>
                 <div class="input">
                     <input type="text" name="level" placeholder="Years Of Program">
+
+                    <img src="./images/Vector (1).svg" alt="" class="list">
                 </div>
 
                 
@@ -82,7 +93,135 @@
 
             </form>
         </div>
+
+
+
+
+        <div class="cgpa-field active">
+            <div class="top">
+                <img src="./images/Vector.svg" alt="" class="back-btn2">
+                <h2>Hi, <span class="welcome">Ayoola Mojeed</span></h2>
+            </div>
+    
+            <div class="last-page">
+                <div class="semester">
+                    <div class="flex">
+                        <h3>Semester <span data-semester>1</span> </h3>
+                        <div class="add-semester">
+                            <img src="./images/Group 1 (1).svg" alt="" data-add>
+                            <h3>Add Semester</h3>
+                        </div>
+                    </div>
+    
+                    <div class="title">
+                        <p>Course Code</p>
+                        <p>Course Unit</p>
+                        <p>Course Grade</p>
+                    </div>
+    
+                    <div class="course-input">
+                        <div class="input1">
+                            <input type="text" placeholder="e.g Course 1">
+    
+                            <input type="text" placeholder="e.g 1">
+    
+                            <div class="grade-input">
+                                <input type="text" placeholder="A" data-grade>
+                                <img src="./images/Vector (1).svg" alt="">
+
+                                <ul class="active">
+                                    <li>A</li>
+                                    <li>B</li>
+                                    <li>C</li>
+                                    <li>D</li>
+                                    <li>E</li>
+                                    <li>F</li>
+                                </ul>
+                            </div>
+    
+                            <div class="del">
+                                <img src="./images/Group 1.svg" alt="">
+                            </div>
+    
+                        </div>
+                        
+                        <div class="input1">
+                            <input type="text" placeholder="e.g Course 1">
+    
+                            <input type="text" placeholder="e.g 1">
+    
+                            <div class="grade-input">
+                                <input type="text" placeholder="A" data-grade>
+                                <img src="./images/Vector (1).svg" alt="">
+
+                                <ul class="active">
+                                    <li>A</li>
+                                    <li>B</li>
+                                    <li>C</li>
+                                    <li>D</li>
+                                    <li>E</li>
+                                    <li>F</li>
+                                </ul>
+                            </div>
+    
+                            <div class="del">
+                                <img src="./images/Group 1.svg" alt="">
+                            </div>
+    
+                        </div>
+                        
+                        
+                    </div>
+                    <div class="course-number">
+                        <div>
+                            <p>Enter number of courses</p>
+                            <input type="number" id="courses" value="2">
+                        </div>
+    
+                        <div>
+                            <img src="./images/refresh-cw.svg" alt="">
+                            <p>Reset</p>
+                        </div>
+    
+                    </div>
+    
+                    <button>Calculate</button>
+                </div>
+
+                <div class="details">
+                    <h2>Calculation Details!</h2>
+                    <p>Total Courses:</p>
+                    <p>Total Credit Units:</p>
+                    <p>Total Points:</p>
+
+                    <div class="line"></div>
+
+                    <div class="gpa">
+                        <p>Your GPA</p>
+                        <h1>4.01</h1>
+                    </div>
+                    <div class="cgpa">
+                        <p>Your CGPA</p>
+                        <h1>5.00</h1>
+                    </div>
+
+                    <div class="progress-bar progress-bar2">
+                        <div class="a"></div>
+                        <div class="b"></div>
+                        <div class="c mark"></div>
+                    </div>
+
+                    <button>Need Help</button>
+
+                </div>
+
+            </div>
+    
+        </div>
+
     </div>
+
+
 
 
     <script src="./script.js"></script>
