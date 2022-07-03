@@ -16,7 +16,7 @@
         </div>
 
 
-        <div class="wrapper" id="start">
+        <div class="wrapper activ" id="start">
             <div class="image">
                 <img src="./images/Studying-rafiki 1.png" alt="" class="image1">
             </div>
@@ -47,7 +47,6 @@
                     <path d="M5.5 10.5L1 6L5.5 1.5"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
 
-                <!-- <img src="./images/Vector.svg" alt="" class="back"> -->
             </div>
             <div class="form-title">
                 <div>
@@ -63,6 +62,7 @@
 
                    
                 </div>
+                <p class="error"></p>
 
                 <label for="faculty">Faculty</label>
                 <div class="input">
@@ -127,20 +127,20 @@
     
                             <div class="grade-input">
                                 <input type="text" placeholder="A" data-grade>
-                                <img src="./images/Vector (1).svg" alt="">
+                                <img src="./images/Vector (1).svg" alt="" data-id="1" class="down">
 
-                                <ul class="active">
-                                    <li>A</li>
-                                    <li>B</li>
-                                    <li>C</li>
-                                    <li>D</li>
-                                    <li>E</li>
-                                    <li>F</li>
+                                <ul class="active grade-ul" id="1">
+                                    <li class="gradePoint">A</li>
+                                    <li class="gradePoint">B</li>
+                                    <li class="gradePoint">C</li>
+                                    <li class="gradePoint">D</li>
+                                    <li class="gradePoint">E</li>
+                                    <li class="gradePoint">F</li>
                                 </ul>
                             </div>
     
                             <div class="del">
-                                <img src="./images/Group 1.svg" alt="">
+                                <img src="./images/Group 1.svg" alt="" class="delete">
                             </div>
     
                         </div>
@@ -152,20 +152,20 @@
     
                             <div class="grade-input">
                                 <input type="text" placeholder="A" data-grade>
-                                <img src="./images/Vector (1).svg" alt="">
+                                <img src="./images/Vector (1).svg" alt="" data-id="2" class="down">
 
-                                <ul class="active">
-                                    <li>A</li>
-                                    <li>B</li>
-                                    <li>C</li>
-                                    <li>D</li>
-                                    <li>E</li>
-                                    <li>F</li>
+                                <ul class="active grade-ul" id="2">
+                                    <li class="gradePoint">A</li>
+                                    <li  class="gradePoint">B</li>
+                                    <li  class="gradePoint">C</li>
+                                    <li class="gradePoint">D</li>
+                                    <li class="gradePoint">E</li>
+                                    <li class="gradePoint">F</li>
                                 </ul>
                             </div>
     
                             <div class="del">
-                                <img src="./images/Group 1.svg" alt="">
+                                <img src="./images/Group 1.svg" alt="" class="delete">
                             </div>
     
                         </div>
@@ -176,6 +176,7 @@
                         <div>
                             <p>Enter number of courses</p>
                             <input type="number" id="courses" value="2">
+                            <button class="add-course">Add</button>
                         </div>
     
                         <div>
@@ -185,7 +186,7 @@
     
                     </div>
     
-                    <button>Calculate</button>
+                    <button data-calculate="">Calculate</button>
                 </div>
 
                 <div class="details">
@@ -198,11 +199,11 @@
 
                     <div class="gpa">
                         <p>Your GPA</p>
-                        <h1>4.01</h1>
+                        <h1 class="grade-point-ave">0.00</h1>
                     </div>
                     <div class="cgpa">
                         <p>Your CGPA</p>
-                        <h1>5.00</h1>
+                        <h1>0.00</h1>
                     </div>
 
                     <div class="progress-bar progress-bar2">
