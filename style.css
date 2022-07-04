@@ -512,7 +512,8 @@ li {
     margin-top: 0;
 }
 
-.add-course:hover {
+.add-course:hover,
+.add-course:focus {
     background-color: hsla(0, 0%, 90%, .7);
 }
 

@@ -21,6 +21,8 @@ const courseInputs = $(".course-input")
 const addCourses = $(".add-course")
 const courses = $("#courses")
 const gradePointAve = $(".grade-point-ave")
+const totalCourses = $(".total-courses")
+const totalCreditUnits = $(".total-credit-units")
 
 
 let currentSemester = 1
@@ -119,18 +121,22 @@ function calculateGpa(arr){
             case 'F':
                 obj.grade = 0
                 break;
+            default:
+                obj.grade = 0
+                break;
         }
+
         let g = obj.unit * obj.grade
         box.push(g)
         unit.push(obj.unit)
     })
     let gradeTotal = box.reduce((total,current)=>total+current)
     let totalUnit = unit.reduce((total,current)=>total+current)
-    // console.log(gradeTotal)
-    // console.log(totalUnit)
-    let gradeAve = Math.floor((gradeTotal/totalUnit)*100)/100
-    // console.log(gradeAve)
-    gradePointAve.innerHTML = gradeAve
+    // let gradeAve = Math.floor((gradeTotal/totalUnit)*100)/100
+    let gradeAve = gradeTotal/totalUnit
+    if(isNaN(gradeAve)) gradeAve = 0.00
+    gradePointAve.innerHTML = gradeAve.toFixed(2)
+    totalCreditUnits.innerHTML = `Total Credit Units: ${totalUnit}`
 }
 
 
@@ -144,7 +150,8 @@ function calculateGpa(arr){
 
         arr.push({unit:unit, grade:grades})
     })
-    // console.log(arr)
+
+    totalCourses.innerHTML = `Total Courses: ${arr.length}`
     // if(){
 
     // }
