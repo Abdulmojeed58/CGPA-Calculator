@@ -16,26 +16,33 @@ const add = $("[data-add]")
 const semester = $("[data-semester]")
 const grade = $("[data-grade]")
 const calculateBtn = $("[data-calculate]")
+const reset = $("[data-reset]")
 const error = $(".error")
 const courseInputs = $(".course-input")
 const addCourses = $(".add-course")
 const courses = $("#courses")
 const gradePointAve = $(".grade-point-ave")
+const cumGradePointAve = $(".cum-grade-point-ave")
 const totalCourses = $(".total-courses")
 const totalCreditUnits = $(".total-credit-units")
 
-
 let currentSemester = 1
+let isGpa = true
 
 
 add.addEventListener('click', ()=>{
     currentSemester ++
     semester.innerHTML = currentSemester
+    isGpa = false
+    resetAll()
+    courses.value = 2
+    addCourseItems()
+
 })
 
 
 ////// ADD COURSES //////////
-addCourses.addEventListener("click", ()=>{
+function addCourseItems(){
     let uniqueId = new Date().getTime()
 
     courseInputs.innerHTML = ''
@@ -70,7 +77,9 @@ addCourses.addEventListener("click", ()=>{
         // let a = `<p>lax</p>`
         // console.log(a)
     }
-})
+}
+
+addCourses.addEventListener("click", addCourseItems)
 
 
 
@@ -82,7 +91,6 @@ courseInputs.addEventListener('click', (e)=>{
     let gradeList = document.getElementById(id)
     if(e.target.classList.contains('down')) {
         gradeList.classList.toggle('active')
-        console.log(id)
         
     } 
     if (e.target.classList.contains('gradePoint')){
@@ -133,13 +141,14 @@ function calculateGpa(arr){
     let gradeTotal = box.reduce((total,current)=>total+current)
     let totalUnit = unit.reduce((total,current)=>total+current)
     // let gradeAve = Math.floor((gradeTotal/totalUnit)*100)/100
-    let gradeAve = gradeTotal/totalUnit
-    if(isNaN(gradeAve)) gradeAve = 0.00
-    gradePointAve.innerHTML = gradeAve.toFixed(2)
+    gradeAve = gradeTotal/totalUnit;
+
     totalCreditUnits.innerHTML = `Total Credit Units: ${totalUnit}`
+
+    
 }
 
-
+let cgpaArr = []
  function totalGpa(){
     let arr = []
     let allCourses = [...courseInputs.children]
@@ -149,16 +158,65 @@ function calculateGpa(arr){
         let grades = child.lastElementChild.previousElementSibling.firstElementChild.value.toUpperCase();
 
         arr.push({unit:unit, grade:grades})
+
+        cgpaArr.push({unit:unit, grade:grades})
+        //take this to a add semester function and make it a global variable
     })
 
     totalCourses.innerHTML = `Total Courses: ${arr.length}`
-    // if(){
+    
+    
+        calculateGpa(arr)
+        // console.log(arr)
+        // console.log(gradeAve)
+        if(isNaN(gradeAve)) gradeAve = 0.00
+        gradePointAve.innerHTML = gradeAve.toFixed(2)  
+        if(cumGradePointAve.textContent == 0.00){
+            cumGradePointAve.innerHTML = gradeAve.toFixed(2)
+        }
+    
+    
+    if(!isGpa) {
+        calculateGpa(cgpaArr)
+        // console.log(cgpaArr)
+        // console.log(gradeAve)
+        cumGradePointAve.innerHTML = gradeAve.toFixed(2)
+        isGpa = true
+    }
+    // console.log(isGpa)
 
-    // }
-    calculateGpa(arr)
 }
 
-calculateBtn.addEventListener('click', totalGpa)
+calculateBtn.addEventListener('click', ()=>{
+    
+    totalGpa()
+
+})
+
+///// RESET /////////
+function resetAll(){
+    let allCourses = [...courseInputs.children]
+    allCourses.forEach(child=>{
+        child.firstElementChild.nextElementSibling.value = '';
+        
+        child.firstElementChild.value = '';
+
+        child.lastElementChild.previousElementSibling.firstElementChild.value = '';
+
+        gradePointAve.innerHTML = (0.00).toFixed(2)
+
+        totalCreditUnits.innerHTML = `Total Credit Units:`
+
+        totalCourses.innerHTML = `Total Courses:`
+
+    })
+
+    // console.log('reset')
+}
+
+reset.addEventListener('click', resetAll)
+
+
 
 startBtn.addEventListener('click', ()=>{
     load.classList.remove('active')
@@ -207,3 +265,4 @@ $('form').addEventListener('submit', (e)=>{
 
 
 })
+
