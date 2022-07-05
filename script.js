@@ -17,6 +17,7 @@ const semester = $("[data-semester]")
 const grade = $("[data-grade]")
 const calculateBtn = $("[data-calculate]")
 const reset = $("[data-reset]")
+const calculateSpin = $("[data-calculate] span")
 const error = $(".error")
 const courseInputs = $(".course-input")
 const addCourses = $(".add-course")
@@ -25,18 +26,26 @@ const gradePointAve = $(".grade-point-ave")
 const cumGradePointAve = $(".cum-grade-point-ave")
 const totalCourses = $(".total-courses")
 const totalCreditUnits = $(".total-credit-units")
+const loading = $(".loading")
 
 let currentSemester = 1
 let isGpa = true
+let cgpaArr = []
 
 
+
+
+//// CALCULATE FOR ANOTHER SEMESTER //////
 add.addEventListener('click', ()=>{
     currentSemester ++
     semester.innerHTML = currentSemester
     isGpa = false
-    resetAll()
+    resetOne()
     courses.value = 2
     addCourseItems()
+
+    // cgpaArr.push(currentSemester)
+    // console.log(cgpaArr)
 
 })
 
@@ -129,9 +138,12 @@ function calculateGpa(arr){
             case 'F':
                 obj.grade = 0
                 break;
-            default:
+            case '':
                 obj.grade = 0
                 break;
+            // default:
+            //     obj.grade = 10
+            //     break;
         }
 
         let g = obj.unit * obj.grade
@@ -148,7 +160,7 @@ function calculateGpa(arr){
     
 }
 
-let cgpaArr = []
+
  function totalGpa(){
     let arr = []
     let allCourses = [...courseInputs.children]
@@ -160,7 +172,6 @@ let cgpaArr = []
         arr.push({unit:unit, grade:grades})
 
         cgpaArr.push({unit:unit, grade:grades})
-        //take this to a add semester function and make it a global variable
     })
 
     totalCourses.innerHTML = `Total Courses: ${arr.length}`
@@ -176,25 +187,35 @@ let cgpaArr = []
         }
     
     
-    if(!isGpa) {
-        calculateGpa(cgpaArr)
-        // console.log(cgpaArr)
-        // console.log(gradeAve)
+        console.log(cgpaArr)
+        console.log(gradeAve)
+        if(!isGpa) {
+            calculateGpa(cgpaArr)
+        if(isNaN(gradeAve)) gradeAve = 0.00
         cumGradePointAve.innerHTML = gradeAve.toFixed(2)
-        isGpa = true
+        // isGpa = true
     }
     // console.log(isGpa)
 
 }
 
+
+
 calculateBtn.addEventListener('click', ()=>{
     
-    totalGpa()
+    calculateSpin.innerHTML = ''
+    loading.classList.remove('active')
+    setTimeout(()=>{
+        loading.classList.add('active')
+        calculateSpin.innerHTML = 'Calculate'
+        totalGpa()
+
+    }, 1500)
 
 })
 
 ///// RESET /////////
-function resetAll(){
+function resetOne(){
     let allCourses = [...courseInputs.children]
     allCourses.forEach(child=>{
         child.firstElementChild.nextElementSibling.value = '';
@@ -214,7 +235,20 @@ function resetAll(){
     // console.log('reset')
 }
 
-reset.addEventListener('click', resetAll)
+
+
+reset.addEventListener('click', resetOne)
+
+/// RESET ALL TO DEFAULT //////
+reset.addEventListener('dblclick', ()=>{
+    resetOne();
+    cumGradePointAve.innerHTML = (0.00).toFixed(2)
+    cgpaArr = []
+    currentSemester = 1
+    semester.innerHTML = currentSemester
+    courses.value = 2
+    addCourseItems()
+})
 
 
 

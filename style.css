@@ -50,6 +50,25 @@ body {
     }
 }
 
+.loading {
+    width: 20px;
+    height: 20px;
+    /* background-color: white; */
+    border: 3px solid white;
+    border-top-color: #000;
+    border-radius: 50%;
+    animation: spin2 .5s linear .2s infinite;
+}
+
+@keyframes spin2{
+    from{
+        transform: rotate(0turn);
+    }
+    to{
+        transform: rotate(1turn);
+    }
+}
+
 .error {
     color: red;
     display: block !important;
@@ -573,7 +592,7 @@ li {
         justify-content: center;
         /* justify-content: space-between; */
         gap: 70px;
-        padding: 20px 0;
+        padding: 20px 10px;
         margin-inline: auto;
         /* background-color: blue; */
         width: max-content;
