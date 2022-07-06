@@ -58,7 +58,7 @@
             <form>
                 <label for="full-name">Full Name</label>
                 <div class="input">
-                    <input type="text" name="full-name" placeholder="Name Or Student ID" data-name>
+                    <input type="text" name="full-name" placeholder="Name Or Student ID" data-name autofocus>
 
                    
                 </div>
@@ -175,7 +175,7 @@
                     <div class="course-number">
                         <div>
                             <p>Enter number of courses</p>
-                            <input type="number" id="courses" value="2">
+                            <input type="number" id="courses" value="2" autofocus>
                             <button class="add-course">Add</button>
                         </div>
     
@@ -215,11 +215,28 @@
                         <div class="c mark"></div>
                     </div>
 
-                    <button>Need Help</button>
+                    <button data-help>Need Help</button>
 
                 </div>
 
+                <div class="help-modal">
+                    <img src="./images/Group 1.svg" alt="">
+                    <h2>How to Use CGPA Calculator</h2>
+                    <ul>
+                        <li>☆ Add the number of colomns you want (i.e the number of courses you want to calculate for) by clicking on the <button class="add-course" style="display:inline;">Add</button> button.</li>
+                        <li>☆ Enter the course code for your respective courses.</li>
+                        <li>☆ Input the corresponding credit units and grades score.</li>
+                        <li>☆ Click on <button class="add-course help-calc" style="display:inline; width:auto; padding-inline: 5px;">Calculate</button> button to calculate your GPA and CGPA. You should now see your GPA and CGPA displayed below.</li>
+                        <li>☆ If you wish to undo the current calculation, click on the <em>Reset</em> button.</li>
+                        <li>☆ If you wish to reset to <em>Default</em>, double click on the <em>Reset</em> button.</li></li>
+
+                        <li>☆ If you want to calculate your GPA/CGPA for another semester, simply click on 
+                            <button class="add-course" style="display:inline;">+</button>.</li>
+                    </ul>
+                </div>
+
             </div>
+
     
         </div>
 

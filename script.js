@@ -27,6 +27,9 @@ const cumGradePointAve = $(".cum-grade-point-ave")
 const totalCourses = $(".total-courses")
 const totalCreditUnits = $(".total-credit-units")
 const loading = $(".loading")
+const helpModal = $(".help-modal")
+const helpClose = $(".help-modal img")
+const helpBtn = $("[data-help]")
 
 let currentSemester = 1
 let isGpa = true
@@ -187,10 +190,10 @@ function calculateGpa(arr){
         }
     
     
-        console.log(cgpaArr)
-        console.log(gradeAve)
         if(!isGpa) {
             calculateGpa(cgpaArr)
+            // console.log(cgpaArr)
+            // console.log(gradeAve)
         if(isNaN(gradeAve)) gradeAve = 0.00
         cumGradePointAve.innerHTML = gradeAve.toFixed(2)
         // isGpa = true
@@ -279,6 +282,13 @@ backToForm.addEventListener('click', ()=>{
     }, 1500)
 })
 
+helpBtn.addEventListener('click', ()=>{
+    helpModal.classList.add('open')
+})
+
+helpClose.addEventListener('click', ()=>{
+    helpModal.classList.remove('open')
+})
 
 
 $('form').addEventListener('submit', (e)=>{

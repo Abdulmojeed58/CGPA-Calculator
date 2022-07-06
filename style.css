@@ -351,6 +351,7 @@ img {
     /* background-color: red; */
     width: 100%;
     padding-inline: 30px;
+    
 }
 
 .cgpa-field .title p {
@@ -359,6 +360,8 @@ img {
 
 .course-input {
     background-color: #FAFAFA;
+    /* background-color: white; */
+    border-radius: 10px;
     padding: 15px;
     height: 200px;
     overflow-y: auto;
@@ -366,6 +369,7 @@ img {
 
 .course-input .input1 {
     background-color: white;
+    /* background-color: #FAFAFA; */
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -406,6 +410,7 @@ img {
     border: none;
     color: var(--text-color-light);
     font-weight: 600;
+    background-color: inherit;
 }
 
 .grade-input img {
@@ -537,6 +542,58 @@ li {
 }
 
 
+.help-modal {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    box-shadow: 0 0 5px 5px rgba(0 0 0 / .2);
+    width: 85%;
+    max-width: 700px;
+    /* height: 80vh; */
+    padding: 15px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .8s ease-in-out;
+
+}
+
+.help-modal img {
+    width: 50px;
+    height: auto;
+    /* margin-inline: auto; */
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.help-modal h2 {
+    text-align: center;
+    padding: 15px 0;
+    margin: 10px auto 8px;
+    color: var(--text-color-dark);
+}
+
+.help-modal ul {
+    width: 100%;
+    background-color: #E0DAFB;
+    color: var(--text-color-dark);
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.help-modal li {
+    line-height: 2;
+    margin: 5PX 0;
+}
+
+.help-modal.open {
+    opacity: 1;
+    pointer-events: all;
+}
 
 
 
@@ -692,6 +749,10 @@ li {
         height: 28px !important;
         border-radius: 5px;
         margin: 0;
+    }
+
+    .help-calc {
+        width: auto !important;
     }
 
     
