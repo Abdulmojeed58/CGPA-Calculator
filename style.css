@@ -55,7 +55,7 @@ body {
     height: 20px;
     /* background-color: white; */
     border: 3px solid white;
-    border-top-color: #000;
+    border-top-color: brown;
     border-radius: 50%;
     animation: spin2 .5s linear .2s infinite;
 }
@@ -251,7 +251,8 @@ input::placeholder {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-right: 10px;
+    overflow: hidden;
+    /* padding-right: 10px; */
 
 }
 
@@ -259,6 +260,15 @@ input::placeholder {
     width: 15px;
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
+}
+
+select {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    padding-left: 5px;
+    color: #8B8B9B;
 }
 
 label {
@@ -581,7 +591,7 @@ li {
     width: 100%;
     background-color: #E0DAFB;
     color: var(--text-color-dark);
-    padding: 20px;
+    padding: 10px;
     border-radius: 5px;
 }
 
@@ -594,6 +604,11 @@ li {
     opacity: 1;
     pointer-events: all;
 }
+
+
+
+
+
 
 
 
