@@ -592,17 +592,23 @@ li {
     background-color: #E0DAFB;
     color: var(--text-color-dark);
     padding: 10px;
+    padding-left: 30px;
     border-radius: 5px;
 }
 
 .help-modal li {
     line-height: 2;
     margin: 5PX 0;
+    list-style-type: disc;
 }
 
 .help-modal.open {
     opacity: 1;
     pointer-events: all;
+}
+
+.help-modal li span {
+    font-weight: 700;
 }
 
 
