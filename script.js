@@ -67,7 +67,7 @@ function addCourseItems(){
                             <input type="text" placeholder="e.g 1">
     
                             <div class="grade-input">
-                                <input type="text" placeholder="A" data-grade>
+                                <input type="text" placeholder="A" data-grade maxlength="1">
                                 <img src="./images/Vector (1).svg" alt="" data-id="${uniqueId + i}" class="down">
 
                                 <ul class="active grade-ul" id="${uniqueId + i}">
@@ -89,9 +89,15 @@ function addCourseItems(){
         // let a = `<p>lax</p>`
         // console.log(a)
     }
+    checkInvalidEntry()
 }
 
-addCourses.addEventListener("click", addCourseItems)
+
+
+addCourses.addEventListener("click", ()=>{
+    addCourseItems()
+    
+})
 
 
 
@@ -103,8 +109,8 @@ courseInputs.addEventListener('click', (e)=>{
     let gradeList = document.getElementById(id)
     if(e.target.classList.contains('down')) {
         gradeList.classList.toggle('active')
-        
     } 
+
     if (e.target.classList.contains('gradePoint')){
         let input = e.target.parentElement.previousElementSibling.previousElementSibling;
         input.value = e.target.textContent
@@ -204,6 +210,36 @@ function calculateGpa(arr){
 
 
 
+function checkInvalidEntry() {
+    let allCourses = [...courseInputs.children]
+        allCourses.forEach(child=>{
+            let unit = child.firstElementChild.nextElementSibling
+            
+            unit.addEventListener('keyup', ()=>{
+                let regex = /[A-Z]+$/i
+    
+                if(unit.value.match(regex)) {
+                    unit.value = ''
+                }
+            })
+            
+    
+            let grades = child.lastElementChild.previousElementSibling.firstElementChild;
+    
+            grades.addEventListener('keyup', ()=>{
+                let regex = /[A-F]+$/i
+                if(!grades.value.match(regex)) {
+                    grades.value = ''
+                }
+            })
+        })
+    
+}
+        
+
+
+
+
 calculateBtn.addEventListener('click', ()=>{
     
     calculateSpin.innerHTML = ''
@@ -213,7 +249,7 @@ calculateBtn.addEventListener('click', ()=>{
         calculateSpin.innerHTML = 'Calculate'
         totalGpa()
 
-    }, 1500)
+    }, 1000)
 
 })
 
@@ -261,25 +297,21 @@ startBtn.addEventListener('click', ()=>{
         start.classList.add('active')
         form.classList.remove('active')
         load.classList.add('active')
-    }, 1500)
+    }, 1000)
 })
 
 backToStart.addEventListener('click', ()=>{
     load.classList.remove('active')
-    setTimeout(()=>{
         start.classList.remove('active')
         form.classList.add('active')
         load.classList.add('active')
-    }, 1500)
 })
 
 backToForm.addEventListener('click', ()=>{
     load.classList.remove('active')
-    setTimeout(()=>{
         cgpaForm.classList.add('active')
         form.classList.remove('active')
         load.classList.add('active')
-    }, 1500)
 })
 
 helpBtn.addEventListener('click', ()=>{
@@ -293,11 +325,14 @@ helpClose.addEventListener('click', ()=>{
 
 $('form').addEventListener('submit', (e)=>{
     e.preventDefault()
+
     if(!nameInput.value) {
         error.innerHTML = 'Name field cannot be empty';
+        error.previousElementSibling.style.borderColor = 'red'
         return
     }
-    error.innerHTML = '';
+
+
     welcome.innerHTML = `${nameInput.value}`
     load.classList.remove('active')
     setTimeout(()=>{
@@ -309,4 +344,13 @@ $('form').addEventListener('submit', (e)=>{
 
 
 })
+
+nameInput.addEventListener('keyup', ()=>{
+    if(nameInput.value) {
+    error.innerHTML = '';
+    error.previousElementSibling.style.borderColor = '#9684F1'
+    }
+})
+
+window.addEventListener("DOMContentLoaded", checkInvalidEntry)
 
